@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import Toast from '../Forum/Toast';
 
-const ToastContext = React.createContext();
+const ToastContext = React.createContext(null);
 
 const ToastProvider = ({ children }) => {
-  const [toast, setToast] = useState(null);
   return (
-    <ToastContext.Provider value={{
-      toast,
-      setToast: (toast) => setToast(toast)
-    }}>
+    <ToastContext.Provider value={useState(null)}>
       {children}
     </ToastContext.Provider>
   );
